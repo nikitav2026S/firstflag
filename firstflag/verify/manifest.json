@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "authoritative": false,
+  "note": "working tree was dirty: this run describes uncommitted bytes and is not authoritative",
+  "git": {
+    "head": null,
+    "dirty": true
+  },
+  "policy_sha256": "9978738e115937dcd301312f2d9a6433030bf019f46a0048f1bebebda5d12ba9",
+  "runner": {
+    "node": "v22.23.4",
+    "v86": "0.5.473+g315b2b0",
+    "median_boot_ms": 10588
+  },
+  "image": {
+    "outputs": {
+      "bzImage": "33a659c744660e67d6e35da2865adbfdfe2febda6db9f882f20964dbe552c94b",
+      "initrd.cpio.gz": "ef12e321061190e32d3215541677e793a6b7d43ab0a09e6cf958875b7df73c13",
+      "seabios.bin": "9259f306a49b097454186d57cd110d2f8a780d0a3b0497295d5db6cf27b7229d",
+      "vgabios.bin": "796d5b708debce9895eed55d981aa3dcafa33b93ce0d71b03aaea34041392be7"
+    },
+    "cmdline": "console=ttyS0 quiet loglevel=1 tsc=reliable mitigations=off random.trust_cpu=on nokaslr",
+    "memory_mb": 128
+  },
+  "started": "2026-11-07T19:09:15.640Z",
+  "finished": "2026-11-07T19:10:42.584Z",
+  "seeds": 6,
+  "missions": {
+    "01-hidden": {
+      "title": "Hidden in Plain Sight",
+      "version": 1,
+      "template_sha256": "da3a21260390b835fab2da2560cae1483f5fef75b914b941ce650c0257c58d26",
+      "verified": true,
+      "passed": "6/6",
+      "controls": {
+        "wrong_owner": {
+          "detected": true
+        },
+        "removed": {
+          "detected": true
+        }
+      },
+      "median_solve_ms": 268
+    },
+    "02-haystack": {
+      "title": "Needle in a Haystack",
+      "version": 1,
+      "template_sha256": "ada502b613687a7edcbba0802f69364c1c27f499e79f74e54512c87eb7a76ae9",
+      "verified": true,
+      "passed": "6/6",
+      "controls": {
+        "wrong_owner": {
+          "detected": true
+        },
+        "removed": {
+          "detected": true
+        }
+      },
+      "median_solve_ms": 898
+    },
+    "03-locked": {
+      "title": "Permission Denied",
+      "version": 1,
+      "template_sha256": "de05bad267bc2d80172debc8b70bfab4b7ba279407c4d5aec546fc05bfadd7ef",
+      "verified": true,
+      "passed": "6/6",
+      "controls": {
+        "wrong_owner": {
+          "detected": true
+        },
+        "removed": {
+          "detected": true
+        }
+      },
+      "median_solve_ms": 221
+    },
+    "04-layers": {
+      "title": "Layers",
+      "version": 1,
+      "template_sha256": "469cbf132399987646ad4a004a11fdb205064a6588cfd5abee09814e6ca27a45",
+      "verified": true,
+      "passed": "6/6",
+      "controls": {
+        "wrong_owner": {
+          "detected": true
+        },
+        "removed": {
+          "detected": true
+        }
+      },
+      "median_solve_ms": 535
+    },
+    "05-strings": {
+      "title": "Strings Attached",
+      "version": 1,
+      "template_sha256": "19e5e22f322cedbae89aa11e7188282bf62007b4facb9d7200d09e348c6be57d",
+      "verified": true,
+      "passed": "6/6",
+      "controls": {
+        "wrong_owner": {
+          "detected": true
+        },
+        "removed": {
+          "detected": true
+        }
+      },
+      "median_solve_ms": 283
+    },
+    "06-ghost": {
+      "title": "Ghost in the Process",
+      "version": 1,
+      "template_sha256": "e91f39476fc208ec6b325cb668bbcdf0bad4c99218d02674681f96d3e13927aa",
+      "verified": true,
+      "passed": "6/6",
+      "controls": {
+        "wrong_owner": {
+          "detected": true
+        },
+        "removed": {
+          "detected": true
+        }
+      },
+      "median_solve_ms": 471
+    }
+  }
+}

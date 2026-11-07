@@ -1,0 +1,18 @@
+#!/bin/sh
+# Minimal coreutils-style `base64` built on busybox uuencode/uudecode,
+# so students can type `base64 -d` like on any Linux box.
+decode=0
+file=-
+for a in "$@"; do
+  case "$a" in
+    -d|--decode) decode=1 ;;
+    -h|--help) echo "usage: base64 [-d] [FILE]"; exit 0 ;;
+    -*) ;;
+    *) file="$a" ;;
+  esac
+done
+if [ "$decode" = 1 ]; then
+  { echo 'begin-base64 644 -'; cat "$file" | tr -d ' \r'; echo; echo '===='; } | uudecode -o -
+else
+  cat "$file" | uuencode -m - | sed '1d;$d'
+fi

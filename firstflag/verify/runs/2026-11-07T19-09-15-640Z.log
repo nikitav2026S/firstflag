@@ -1,0 +1,205 @@
+FirstFlag verifier  policy 9978738e1159  git none (dirty)  seeds 6
+--- seed 1 01-hidden exit=0 PASS (263 ms)
+$ find ~/missions/01-hidden -type f -name '.*' -exec cat {} \;
+you found it!
+ktp{benwo6k6tuqfcaq5}
+
+--- seed 1 02-haystack exit=0 PASS (947 ms)
+$ grep Accepted ~/missions/02-haystack/auth.log
+Nov  7 04:17:57 firstflag sshd[16529]: Accepted password for svc-backup from 203.0.113.157 port 41168 ssh2 session=ktp{3ty5snfd6htoodgj}
+
+--- seed 1 03-locked exit=0 PASS (192 ms)
+$ cd ~/missions/03-locked && chmod u+r vault.txt && cat vault.txt
+access granted.
+ktp{cl2a4fepkasn7ygq}
+
+--- seed 1 04-layers exit=0 PASS (296 ms)
+$ cd ~/missions/04-layers; d=$(cat transmission.txt); for l in $(sed -n 's/^layers applied (in order): //p' notes.txt | tr ',' '\n' | sed '1!G;h;$!d'); do case $l in base64) d=$(echo "$d" | base64 -d);; rot13) d=$(echo "$d" | tr 'A-Za-z' 'N-ZA-Mn-za-m');; rev) d=$(echo "$d" | rev);; esac; done; echo "$d"
+ktp{twua2jxhhboacf77}
+
+--- seed 1 05-strings exit=0 PASS (192 ms)
+$ strings ~/missions/05-strings/firmware.bin | grep -o 'ktp{[a-z2-7]*}'
+ktp{lc2r4qghtypfkld4}
+
+--- seed 1 06-ghost exit=0 PASS (534 ms)
+$ for p in /proc/[0-9]*; do tr '\0' '\n' < $p/environ 2>/dev/null; done | grep -o 'ktp{[a-z2-7]*}' | sort -u
+-sh: can't open /proc/1/environ: Permission denied
+-sh: can't open /proc/10/environ: Permission denied
+-sh: can't open /proc/11/environ: Permission denied
+-sh: can't open /proc/112/environ: Permission denied
+-sh: can't open /proc/12/environ: Permission denied
+-sh: can't open /proc/13/environ: Permission denied
+-sh: can't open /proc/14/environ: Permission denied
+-sh: can't open /proc/15/environ: Pe
+seed 1: 01-hidden ✓  02-haystack ✓  03-locked ✓  04-layers ✓  05-strings ✓  06-ghost ✓
+--- seed 2 01-hidden exit=0 PASS (290 ms)
+$ find ~/missions/01-hidden -type f -name '.*' -exec cat {} \;
+you found it!
+ktp{t7m5jcp2aaa3xx6k}
+
+--- seed 2 02-haystack exit=0 PASS (916 ms)
+$ grep Accepted ~/missions/02-haystack/auth.log
+Nov  7 03:40:16 firstflag sshd[17481]: Accepted password for svc-backup from 203.0.113.195 port 59171 ssh2 session=ktp{tsxlxwzuedpqwo5d}
+
+--- seed 2 03-locked exit=0 PASS (215 ms)
+$ cd ~/missions/03-locked && chmod u+r vault.txt && cat vault.txt
+access granted.
+ktp{2yf6nc663geemd24}
+
+--- seed 2 04-layers exit=0 PASS (652 ms)
+$ cd ~/missions/04-layers; d=$(cat transmission.txt); for l in $(sed -n 's/^layers applied (in order): //p' notes.txt | tr ',' '\n' | sed '1!G;h;$!d'); do case $l in base64) d=$(echo "$d" | base64 -d);; rot13) d=$(echo "$d" | tr 'A-Za-z' 'N-ZA-Mn-za-m');; rev) d=$(echo "$d" | rev);; esac; done; echo "$d"
+ktp{6ichybjsaei2ngug}
+
+--- seed 2 05-strings exit=0 PASS (293 ms)
+$ strings ~/missions/05-strings/firmware.bin | grep -o 'ktp{[a-z2-7]*}'
+ktp{wklyrtv626gavxgh}
+
+--- seed 2 06-ghost exit=0 PASS (510 ms)
+$ for p in /proc/[0-9]*; do tr '\0' '\n' < $p/environ 2>/dev/null; done | grep -o 'ktp{[a-z2-7]*}' | sort -u
+-sh: can't open /proc/1/environ: Permission denied
+-sh: can't open /proc/10/environ: Permission denied
+-sh: can't open /proc/11/environ: Permission denied
+-sh: can't open /proc/112/environ: Permission denied
+-sh: can't open /proc/12/environ: Permission denied
+-sh: can't open /proc/13/environ: Permission denied
+-sh: can't open /proc/14/environ: Permission denied
+-sh: can't open /proc/15/environ: Pe
+seed 2: 01-hidden ✓  02-haystack ✓  03-locked ✓  04-layers ✓  05-strings ✓  06-ghost ✓
+--- seed 3 01-hidden exit=0 PASS (190 ms)
+$ find ~/missions/01-hidden -type f -name '.*' -exec cat {} \;
+you found it!
+ktp{vjusy3ceqozo26ui}
+
+--- seed 3 02-haystack exit=0 PASS (867 ms)
+$ grep Accepted ~/missions/02-haystack/auth.log
+Nov  7 02:05:18 firstflag sshd[8086]: Accepted password for svc-backup from 203.0.113.184 port 7692 ssh2 session=ktp{5ooqxxiwa7kvh7dg}
+
+--- seed 3 03-locked exit=0 PASS (214 ms)
+$ cd ~/missions/03-locked && chmod u+r vault.txt && cat vault.txt
+access granted.
+ktp{u4vuqjs66nsl2zb7}
+
+--- seed 3 04-layers exit=0 PASS (525 ms)
+$ cd ~/missions/04-layers; d=$(cat transmission.txt); for l in $(sed -n 's/^layers applied (in order): //p' notes.txt | tr ',' '\n' | sed '1!G;h;$!d'); do case $l in base64) d=$(echo "$d" | base64 -d);; rot13) d=$(echo "$d" | tr 'A-Za-z' 'N-ZA-Mn-za-m');; rev) d=$(echo "$d" | rev);; esac; done; echo "$d"
+ktp{tw3gxrrzdcg44t3j}
+
+--- seed 3 05-strings exit=0 PASS (272 ms)
+$ strings ~/missions/05-strings/firmware.bin | grep -o 'ktp{[a-z2-7]*}'
+ktp{mbdp6ywzdpkx4sar}
+
+--- seed 3 06-ghost exit=0 PASS (466 ms)
+$ for p in /proc/[0-9]*; do tr '\0' '\n' < $p/environ 2>/dev/null; done | grep -o 'ktp{[a-z2-7]*}' | sort -u
+-sh: can't open /proc/1/environ: Permission denied
+-sh: can't open /proc/10/environ: Permission denied
+-sh: can't open /proc/11/environ: Permission denied
+-sh: can't open /proc/112/environ: Permission denied
+-sh: can't open /proc/12/environ: Permission denied
+-sh: can't open /proc/13/environ: Permission denied
+-sh: can't open /proc/14/environ: Permission denied
+-sh: can't open /proc/15/environ: Pe
+seed 3: 01-hidden ✓  02-haystack ✓  03-locked ✓  04-layers ✓  05-strings ✓  06-ghost ✓
+--- seed 4 01-hidden exit=0 PASS (287 ms)
+$ find ~/missions/01-hidden -type f -name '.*' -exec cat {} \;
+you found it!
+ktp{5txs735cmt5llf2z}
+
+--- seed 4 02-haystack exit=0 PASS (898 ms)
+$ grep Accepted ~/missions/02-haystack/auth.log
+Nov  7 01:10:56 firstflag sshd[7009]: Accepted password for svc-backup from 203.0.113.121 port 29137 ssh2 session=ktp{bhkw44io5k7ke5oz}
+
+--- seed 4 03-locked exit=0 PASS (236 ms)
+$ cd ~/missions/03-locked && chmod u+r vault.txt && cat vault.txt
+access granted.
+ktp{apdyqnbqwj25er2w}
+
+--- seed 4 04-layers exit=0 PASS (535 ms)
+$ cd ~/missions/04-layers; d=$(cat transmission.txt); for l in $(sed -n 's/^layers applied (in order): //p' notes.txt | tr ',' '\n' | sed '1!G;h;$!d'); do case $l in base64) d=$(echo "$d" | base64 -d);; rot13) d=$(echo "$d" | tr 'A-Za-z' 'N-ZA-Mn-za-m');; rev) d=$(echo "$d" | rev);; esac; done; echo "$d"
+ktp{3hcjjo2xrjghprcg}
+
+--- seed 4 05-strings exit=0 PASS (283 ms)
+$ strings ~/missions/05-strings/firmware.bin | grep -o 'ktp{[a-z2-7]*}'
+ktp{dpxfhr3rzsfrkjcw}
+
+--- seed 4 06-ghost exit=0 PASS (471 ms)
+$ for p in /proc/[0-9]*; do tr '\0' '\n' < $p/environ 2>/dev/null; done | grep -o 'ktp{[a-z2-7]*}' | sort -u
+-sh: can't open /proc/1/environ: Permission denied
+-sh: can't open /proc/10/environ: Permission denied
+-sh: can't open /proc/11/environ: Permission denied
+-sh: can't open /proc/113/environ: Permission denied
+-sh: can't open /proc/12/environ: Permission denied
+-sh: can't open /proc/13/environ: Permission denied
+-sh: can't open /proc/14/environ: Permission denied
+-sh: can't open /proc/15/environ: Pe
+seed 4: 01-hidden ✓  02-haystack ✓  03-locked ✓  04-layers ✓  05-strings ✓  06-ghost ✓
+--- seed 5 01-hidden exit=0 PASS (268 ms)
+$ find ~/missions/01-hidden -type f -name '.*' -exec cat {} \;
+you found it!
+ktp{ik2uydwinbuhscun}
+
+--- seed 5 02-haystack exit=0 PASS (843 ms)
+$ grep Accepted ~/missions/02-haystack/auth.log
+Nov  7 04:02:26 firstflag sshd[11934]: Accepted password for svc-backup from 203.0.113.83 port 5588 ssh2 session=ktp{tjx4lo3xbhnt7fxg}
+
+--- seed 5 03-locked exit=0 PASS (273 ms)
+$ cd ~/missions/03-locked && chmod u+r vault.txt && cat vault.txt
+access granted.
+ktp{s73oqykamrkwczg7}
+
+--- seed 5 04-layers exit=0 PASS (524 ms)
+$ cd ~/missions/04-layers; d=$(cat transmission.txt); for l in $(sed -n 's/^layers applied (in order): //p' notes.txt | tr ',' '\n' | sed '1!G;h;$!d'); do case $l in base64) d=$(echo "$d" | base64 -d);; rot13) d=$(echo "$d" | tr 'A-Za-z' 'N-ZA-Mn-za-m');; rev) d=$(echo "$d" | rev);; esac; done; echo "$d"
+ktp{njvcd46sccczcspy}
+
+--- seed 5 05-strings exit=0 PASS (268 ms)
+$ strings ~/missions/05-strings/firmware.bin | grep -o 'ktp{[a-z2-7]*}'
+ktp{4mfafttsd5yztetv}
+
+--- seed 5 06-ghost exit=0 PASS (377 ms)
+$ for p in /proc/[0-9]*; do tr '\0' '\n' < $p/environ 2>/dev/null; done | grep -o 'ktp{[a-z2-7]*}' | sort -u
+-sh: can't open /proc/1/environ: Permission denied
+-sh: can't open /proc/10/environ: Permission denied
+-sh: can't open /proc/11/environ: Permission denied
+-sh: can't open /proc/112/environ: Permission denied
+-sh: can't open /proc/12/environ: Permission denied
+-sh: can't open /proc/13/environ: Permission denied
+-sh: can't open /proc/14/environ: Permission denied
+-sh: can't open /proc/15/environ: Pe
+seed 5: 01-hidden ✓  02-haystack ✓  03-locked ✓  04-layers ✓  05-strings ✓  06-ghost ✓
+--- seed 6 01-hidden exit=0 PASS (250 ms)
+$ find ~/missions/01-hidden -type f -name '.*' -exec cat {} \;
+you found it!
+ktp{qc2pz6visnoijcsn}
+
+--- seed 6 02-haystack exit=0 PASS (867 ms)
+$ grep Accepted ~/missions/02-haystack/auth.log
+Nov  7 02:21:03 firstflag sshd[20909]: Accepted password for svc-backup from 203.0.113.43 port 24376 ssh2 session=ktp{nuhnqrhibsz6tt45}
+
+--- seed 6 03-locked exit=0 PASS (221 ms)
+$ cd ~/missions/03-locked && chmod u+r vault.txt && cat vault.txt
+access granted.
+ktp{oz2zpr72tzx6ufth}
+
+--- seed 6 04-layers exit=0 PASS (616 ms)
+$ cd ~/missions/04-layers; d=$(cat transmission.txt); for l in $(sed -n 's/^layers applied (in order): //p' notes.txt | tr ',' '\n' | sed '1!G;h;$!d'); do case $l in base64) d=$(echo "$d" | base64 -d);; rot13) d=$(echo "$d" | tr 'A-Za-z' 'N-ZA-Mn-za-m');; rev) d=$(echo "$d" | rev);; esac; done; echo "$d"
+ktp{kzrtmumpfef334g7}
+
+--- seed 6 05-strings exit=0 PASS (292 ms)
+$ strings ~/missions/05-strings/firmware.bin | grep -o 'ktp{[a-z2-7]*}'
+ktp{yqnjfsacyrjsi7o2}
+
+--- seed 6 06-ghost exit=0 PASS (420 ms)
+$ for p in /proc/[0-9]*; do tr '\0' '\n' < $p/environ 2>/dev/null; done | grep -o 'ktp{[a-z2-7]*}' | sort -u
+-sh: can't open /proc/1/environ: Permission denied
+-sh: can't open /proc/10/environ: Permission denied
+-sh: can't open /proc/11/environ: Permission denied
+-sh: can't open /proc/113/environ: Permission denied
+-sh: can't open /proc/12/environ: Permission denied
+-sh: can't open /proc/13/environ: Permission denied
+-sh: can't open /proc/14/environ: Permission denied
+-sh: can't open /proc/15/environ: Pe
+seed 6: 01-hidden ✓  02-haystack ✓  03-locked ✓  04-layers ✓  05-strings ✓  06-ghost ✓
+VERIFIED  01-hidden    6/6 solves  controls: wrong-owner caught, removed caught
+VERIFIED  02-haystack  6/6 solves  controls: wrong-owner caught, removed caught
+VERIFIED  03-locked    6/6 solves  controls: wrong-owner caught, removed caught
+VERIFIED  04-layers    6/6 solves  controls: wrong-owner caught, removed caught
+VERIFIED  05-strings   6/6 solves  controls: wrong-owner caught, removed caught
+VERIFIED  06-ghost     6/6 solves  controls: wrong-owner caught, removed caught

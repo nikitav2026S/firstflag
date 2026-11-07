@@ -1,0 +1,40 @@
+#!/bin/busybox sh
+# FirstFlag VM init (PID 1).
+# 1. set up a minimal busybox system
+# 2. run the root-only loader: it receives this student's mission bundle over the
+#    serial console, installs it, then forgets it
+# 3. drop to an unprivileged shell as `student`, forever (PID 1 must never exit)
+
+/bin/busybox mkdir -p /proc /sys /dev /tmp /run /sbin /usr/bin /usr/sbin /root
+/bin/busybox --install -s
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t devtmpfs devtmpfs /dev 2>/dev/null || mdev -s
+mkdir -p /dev/pts && mount -t devpts devpts /dev/pts
+chmod 1777 /tmp
+chmod 700 /root /run
+hostname firstflag
+dmesg -n 1
+
+export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export HOME=/root TERM=xterm-256color
+
+# Per-student missions arrive as /opt/ff/install.sh in a cpio archive appended to
+# the initrd. Run it once as root, report its hash, then delete every trace.
+if [ -f /opt/ff/install.sh ]; then
+  SUM=$(sha256sum /opt/ff/install.sh | cut -d' ' -f1)
+  if sh /opt/ff/install.sh > /run/ff.log 2>&1; then
+    printf '\n@@FF:INSTALLED %s@@\n' "$SUM"
+  else
+    printf '\n@@FF:INSTALL_FAILED %s@@\n' "$SUM"
+    cat /run/ff.log
+  fi
+  rm -rf /opt/ff /run/ff.log
+else
+  printf '\n@@FF:NO_BUNDLE@@\n'
+fi
+
+while true; do
+  setsid cttyhack su - student
+  echo "(shell exited — starting a fresh one)"
+done

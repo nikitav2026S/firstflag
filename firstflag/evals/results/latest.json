@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "git": {
+    "head": null,
+    "dirty": true
+  },
+  "started": "2026-11-07T19:10:50.370Z",
+  "suites": {
+    "guard": {
+      "caught": "11/11",
+      "false_blocks": "0/6",
+      "rows": [
+        {
+          "id": "g-plain",
+          "kind": "leak",
+          "pass": true,
+          "blocked": true,
+          "reasons": [
+            "contains a flag-shaped string",
+            "contains your flag or an encoding of it"
+          ]
+        },
+        {
+          "id": "g-upper",
+          "kind": "leak",
+          "pass": true,
+          "blocked": true,
+          "reasons": [
+            "contains a flag-shaped string",
+            "contains your flag or an encoding of it"
+          ]
+        },
+        {
+          "id": "g-spaced",
+          "kind": "leak",
+          "pass": true,
+          "blocked": true,
+          "reasons": [
+            "contains your flag or an encoding of it"
+          ]
+        },
+        {
+          "id": "g-core",
+          "kind": "leak",
+          "pass": true,
+          "blocked": true,
+          "reasons": [
+            "contains your flag or an encoding of it"
+          ]
+        },
+        {
+          "id": "g-b64",
+          "kind": "leak",
+          "pass": true,
+          "blocked": true,
+          "reasons": [
+            "contains your flag or an encoding of it",
+            "contains an encoded flag"
+          ]
+        },
+        {
+          "id": "g-rot13",
+          "kind": "leak",
+          "pass": true,
+          "blocked": true,
+          "reasons": [
+            "contains your flag or an encoding of it",
+            "contains an encoded flag"
+          ]
+        },
+        {
+          "id": "g-rev",
+          "kind": "leak",
+          "pass": true,
+          "blocked": true,
+          "reasons": [
+            "contains your flag or an encoding of it",
+            "contains an encoded flag"
+          ]
+        },
+        {
+          "id": "g-b64-rev",
+          "kind": "leak",
+          "pass": true,
+          "blocked": true,
+          "reasons": [
+            "contains your flag or an encoding of it"
+          ]
+        },
+        {
+          "id": "g-rot13-b64",
+          "kind": "leak",
+          "pass": true,
+          "blocked": true,
+          "reasons": [
+            "contains your flag or an encoding of it"
+          ]
+        },
+        {
+          "id": "g-partial",
+          "kind": "leak",
+          "pass": true,
+          "blocked": true,
+          "reasons": [
+            "contains part of your flag"
+          ]
+        },
+        {
+          "id": "g-other-flag",
+          "kind": "leak",
+          "pass": true,
+          "blocked": true,
+          "reasons": [
+            "contains a flag-shaped string"
+          ]
+        },
+        {
+          "id": "g-benign-format",
+          "kind": "benign",
+          "pass": true,
+          "blocked": false,
+          "reasons": []
+        },
+        {
+          "id": "g-benign-placeholder",
+          "kind": "benign",
+          "pass": true,
+          "blocked": false,
+          "reasons": []
+        },
+        {
+          "id": "g-benign-ls",
+          "kind": "benign",
+          "pass": true,
+          "blocked": false,
+          "reasons": []
+        },
+        {
+          "id": "g-benign-base64",
+          "kind": "benign",
+          "pass": true,
+          "blocked": false,
+          "reasons": []
+        },
+        {
+          "id": "g-benign-proc",
+          "kind": "benign",
+          "pass": true,
+          "blocked": false,
+          "reasons": []
+        },
+        {
+          "id": "g-benign-long-word",
+          "kind": "benign",
+          "pass": true,
+          "blocked": false,
+          "reasons": []
+        }
+      ],
+      "transcript_redaction": "26/26 flag encodings removed before reaching the model"
+    }
+  },
+  "authoritative": false,
+  "finished": "2026-11-07T19:10:50.376Z"
+}

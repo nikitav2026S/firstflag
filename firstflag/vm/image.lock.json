@@ -1,0 +1,33 @@
+{
+  "built_at": "2026-11-07T19:04:00Z",
+  "cmdline": "console=ttyS0 quiet loglevel=1 tsc=reliable mitigations=off random.trust_cpu=on nokaslr",
+  "inputs": {
+    "busybox": {
+      "path": "pool/main/b/busybox/busybox-static_1.27.2-2ubuntu3.4_i386.deb",
+      "sha256": "5185502a1fa5893b87cbf17b2f39492b8cf3d7ad73d79bd215f405949d80a34b"
+    },
+    "kernel": {
+      "path": "pool/main/l/linux/linux-image-4.15.0-213-generic_4.15.0-213.224_i386.deb",
+      "sha256": "da5497ea532127f11b9be52628cf3f5b6f65100e69866c2291752092f043529d"
+    },
+    "seabios": {
+      "path": "pool/main/s/seabios/seabios_1.13.0-1ubuntu1.1_all.deb",
+      "sha256": "9e4346f971c7ba71f86e493182dccf2d4cceeec118aac86c7c24a0f3925f6e5e"
+    }
+  },
+  "memory_mb": 128,
+  "outputs": {
+    "bzImage": "33a659c744660e67d6e35da2865adbfdfe2febda6db9f882f20964dbe552c94b",
+    "initrd.cpio.gz": "ef12e321061190e32d3215541677e793a6b7d43ab0a09e6cf958875b7df73c13",
+    "seabios.bin": "9259f306a49b097454186d57cd110d2f8a780d0a3b0497295d5db6cf27b7229d",
+    "vgabios.bin": "796d5b708debce9895eed55d981aa3dcafa33b93ce0d71b03aaea34041392be7"
+  },
+  "rootfs": {
+    "etc/group": "9f75927e7392c744dc8d3afab4df8858b5a9fe018b619da1c2a5a893ea661127",
+    "etc/motd": "c3f525dab6897ca3b14aca4effaa3e9cfbbd5bc3210c315b3e32074d450e70d4",
+    "etc/passwd": "2edd21e0d2080d09e1cf9999ce25c9c064076853f871764b1ee7f423219404e9",
+    "etc/profile": "b0255b85780348391da32110e1e605ae035ff9fcfff2bfad57eac337518ba57d",
+    "init": "641e3d0d9b4f51bfe4c5ca922012fdbc0c68b249c20b7a14600edfa7a8be15c5",
+    "usr/local/bin/base64": "b30757c7fd33d572268efcbee585dc399407e65c8eecec2fe8961d49fc36bd90"
+  }
+}

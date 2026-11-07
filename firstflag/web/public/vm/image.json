@@ -1,0 +1,10 @@
+{
+  "cmdline": "console=ttyS0 quiet loglevel=1 tsc=reliable mitigations=off random.trust_cpu=on nokaslr",
+  "memory_mb": 128,
+  "outputs": {
+    "bzImage": "33a659c744660e67d6e35da2865adbfdfe2febda6db9f882f20964dbe552c94b",
+    "initrd.cpio.gz": "ef12e321061190e32d3215541677e793a6b7d43ab0a09e6cf958875b7df73c13",
+    "seabios.bin": "9259f306a49b097454186d57cd110d2f8a780d0a3b0497295d5db6cf27b7229d",
+    "vgabios.bin": "796d5b708debce9895eed55d981aa3dcafa33b93ce0d71b03aaea34041392be7"
+  }
+}
