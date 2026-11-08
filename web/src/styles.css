@@ -231,3 +231,4 @@ input:focus, textarea:focus { border-color: var(--signal-blue); outline: none; b
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 .welcome-flags .flag { width: clamp(40px, 12vw, 64px); height: auto; }
+.flag-from-terminal { margin-top: 0.4rem; font-size: var(--step--1); }

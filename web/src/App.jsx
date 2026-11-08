@@ -120,6 +120,7 @@ function Workspace({ me, onLeave }) {
         {mission && (
           <FlagForm
             mission={mission}
+            transcriptRef={transcriptRef}
             onCaptured={() => { setJustCaptured(mission.id); load(); setTimeout(() => setJustCaptured(null), 1600); }}
           />
         )}
@@ -142,10 +143,18 @@ function IntegrityLine({ vm }) {
   );
 }
 
-function FlagForm({ mission, onCaptured }) {
+function FlagForm({ mission, onCaptured, transcriptRef }) {
   const [flag, setFlag] = useState("");
   const [result, setResult] = useState(null);
+  const [seen, setSeen] = useState(null); // most recent flag-shaped text in the terminal
   useEffect(() => { setFlag(""); setResult(null); }, [mission.id]);
+  useEffect(() => {
+    const t = setInterval(() => {
+      const all = (transcriptRef.current || "").match(/ktp\{[a-z2-7]{16}\}/g);
+      setSeen(all ? all[all.length - 1] : null);
+    }, 700);
+    return () => clearInterval(t);
+  }, [transcriptRef]);
   async function submit(e) {
     e.preventDefault();
     try {
@@ -161,6 +170,11 @@ function FlagForm({ mission, onCaptured }) {
         <input id="flag" value={flag} onChange={(e) => setFlag(e.target.value)} placeholder="ktp{...}" spellCheck={false} autoComplete="off" />
         <button type="submit" disabled={!flag.trim()}>Submit flag</button>
       </div>
+      {seen && seen !== flag && (
+        <button type="button" className="link flag-from-terminal" onClick={() => setFlag(seen)}>
+          Use <code>{seen}</code> from the terminal
+        </button>
+      )}
       {result && <p className={`flag-result is-${result.result}`} role="status">{result.message}</p>}
     </form>
   );

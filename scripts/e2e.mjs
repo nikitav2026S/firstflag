@@ -50,7 +50,9 @@ await page.click(".tutor-ask button");
 await page.waitForSelector(".msg-tutor .guard-note", { timeout: 30_000 });
 log(`tutor: ${(await page.textContent(".msg-tutor p")).slice(0, 100)} | ${await page.textContent(".guard-note")}`);
 
-await page.fill("#flag", flag);
+await page.click(".flag-from-terminal");                       // "Use ktp{…} from the terminal"
+await page.waitForFunction((f) => document.querySelector("#flag").value === f, flag, { timeout: 3000 })
+  .catch(async () => { throw new Error(`fill-from-terminal gave "${await page.inputValue("#flag")}", button said "${await page.textContent(".flag-from-terminal").catch(() => "(gone)")}"`); });
 await page.click("text=Submit flag");
 await page.waitForSelector(".flag-result");
 log(`submit: ${await page.textContent(".flag-result")}`);

@@ -44,6 +44,15 @@ export function Terminal({ token, bootKey, transcriptRef, onState }) {
         });
         if (disposed) { machine.destroy(); return; }
         term.onData((d) => machine.send(d));
+        // Ctrl+C copies when text is selected (otherwise it interrupts, as in any terminal)
+        term.attachCustomKeyEventHandler((e) => {
+          const isCopy = e.type === "keydown" && (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "c";
+          if (isCopy && term.hasSelection()) {
+            navigator.clipboard?.writeText(term.getSelection()).catch(() => {});
+            return false;
+          }
+          return true;
+        });
       } catch (e) {
         if (!disposed) setStatus({ phase: "error", error: e.message });
       }
